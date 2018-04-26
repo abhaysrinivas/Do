@@ -1,0 +1,93 @@
+
+<div class="container" id="parent">
+  <div class="child">
+        <!-- Trigger the modal with a button -->
+        <button type="button" class="btn btn-info btn-lg" id = "but-id" data-toggle="modal" data-target="#myModal">Create Asset</button>
+      
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+          <div class="modal-dialog">
+          
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+              </div>
+              <div class="modal-body">
+                  <app-create-form> </app-create-form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+  </div>
+    <!-- Assets display -->
+  <div class="child">
+      <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">Assets</h3>
+            <span class="pull-right clickable"><i class="glyphicon glyphicon-chevron-up"></i></span>
+          </div>
+            <div class="panel-body">
+                <table class="table">
+                    <thead class="blue-grey lighten-4">
+                        <tr>
+                          <th *ngFor="let col of columns">
+                            {{col}}
+                          </th>
+                        </tr>
+                    </thead>
+                    <tr *ngFor="let char of characters | async">
+                      <td *ngFor="let col of columns">
+                        {{char[col]}}
+                      </td>
+                      <td>
+                                                                     <!-- Trigger the modal with a button -->
+                                                                     <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#transfer">Transfer Asset</button>
+                                  
+                                                                     <!-- Modal -->
+                                                                     <div class="modal fade" id="transfer" role="dialog">
+                                                                       <div class="modal-dialog">
+                                                                       
+                                                                         <!-- Modal content-->
+                                                                         <div class="modal-content">
+                                                                           <div class="modal-header">
+                                                                             <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                             <h4 class="modal-title">Modal Header</h4>
+                                                                           </div>
+                                                                           <div class="modal-body">
+                                                                               <p> Please select an organization </p>
+                                                                               <form (ngSubmit)="checkoptions()">
+                                                                                   <div class="form-group">
+                                                                                       <label for="options">Options:</label>
+                                                                                       <div *ngFor="let option of options">
+                                                                                           <label>
+                                                                                               <input type="checkbox"
+                                                                                                     name="options"
+                                                                                                     value="{{option.value}}"
+                                                                                                     [(ngModel)]="option.checked"/>
+                                                                                               {{option.name}}
+                                                                                           </label>
+                                                                                       </div>
+                                                                                       <button type="submit" class="btn btn-primary" >Submit</button>
+                                                                                       </div>
+                                                                                   </form>
+                                                                               </div>
+                                                                           </div>
+                                                                           <div class="modal-footer">
+                                                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                           </div>
+                                                                         </div>
+                                                                         
+                                                                       </div>
+                      </td>
+                    </tr>
+                  </table>
+            </div>
+</div>
+</div>
+</div>

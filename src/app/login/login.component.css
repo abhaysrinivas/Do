@@ -1,0 +1,32 @@
+.container-styles{
+	position: relative; 
+	top: 300px;
+    width:50%;
+}
+
+.padding{
+  padding-bottom:0px;
+  margin-bottom:0px;
+}
+
+.link-underline{
+   color:#337ab7;
+    text-decoration: underline;
+}
+
+.error{
+    color: red;
+    position:relative;
+    left:50px;
+}
+
+.form-control {
+    width:112%
+}
+
+.btn {
+    align:center;
+    width:350%;
+}
+
+
